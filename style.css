@@ -1,0 +1,334 @@
+    body {
+      color: #0d0221;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: Exo;
+    }
+
+    .full-screen {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden; 
+    }
+
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255);
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .logo {
+      margin-left: 50px; /* Left align logo */
+    }
+
+    .above-fold {
+      background-image: url("background.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 80vh; /* Adjusted height to avoid overlapping header */
+      min-height: 70vh;
+      padding: 50px; /* Added padding to create space from header */
+    }
+
+    .below-fold {
+      padding: 20px;
+      background-color: #0d0221;
+      text-align: center;
+      color: white;
+      font-size: 40px;
+      margin-top: 50px; /* Added margin for space between sections */
+    }
+
+    .space {
+      height: 50px; /* Add desired space between sections */
+    }
+
+    .logo img {
+      width: 90px;
+      height: 65px;
+    }
+
+
+    ul{
+      list-style-type: none;
+    }
+
+    #text-overlay {
+      color: #0d0221;
+      font-family: "Oxanium";
+      font-weight: 600;
+      font-size: 60px;
+      position: absolute;
+      bottom: 180px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #text-overlay-change {
+      font-family: "Bungee";
+      font-weight: 400;
+      font-size: 60px;
+    }
+
+    .below-fold {
+      padding: 20px;
+      background-color:#0d0221;
+      text-align: center;
+      color: white;
+      font-size: 40px;
+    }
+
+    .below-fold-detail {
+      font-size: 32px;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 50px;
+    }
+
+    .section {
+      padding-bottom: 20px;
+      flex: 1;
+    }
+
+    .three-box-section {
+      display: flex;
+      justify-content: space-between;
+      margin: 50px 0;
+      margin-top: 10px;
+    }
+    
+    .box {
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      text-align: center;
+      flex: 1;
+    }
+    
+    .box h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .box p {
+      line-height: 1.5;
+    }
+
+    .site-footer {
+      background-color: white;
+      color: #0d0221;
+      padding: 20px;
+      text-align: center;
+      font-size: 16px;
+      font-family: 'Chakra Petch';
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .copyright,
+    .footer-nav {
+      flex: 1;
+    }
+    
+    .footer-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-nav li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    
+    .footer-nav a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    .main-nav {
+      background-color: white;
+      border-bottom: 1px solid #ddd;
+      padding: 0 10px;
+      margin-right: 60px;
+      font-family: 'Chakra Petch';
+      font-size: 22px;
+    }
+    
+    .main-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .main-nav li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    
+    .main-nav a {
+      color: #0d0221;
+      text-decoration: none;
+    }
+
+    .main-nav a.active {
+      color: #E22954;
+    }
+
+    .about-page {
+      padding: 50px;
+    }
+    
+    .section {
+      margin-bottom: 50px;
+    }
+    
+    .section-1 h2 {
+      font-size: 44px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    
+    .section-1 p {
+      font-size: 26px;
+    }
+    
+    .section-1 img {
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 20px;
+    }
+    
+    .section-2 p {
+      line-height: 1.5;
+    }
+    
+    .leaders {
+      display: flex;
+      justify-content: space-evenly;
+      padding: 60px;
+    }
+    
+    .leader {
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    
+    .leader img {
+      width: 250px;
+      margin-bottom: 10px;
+    }
+    
+    .callout {
+      background-color: #E22954;
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .callout a {
+      color: white;
+      text-decoration: underline;
+    }
+    
+
+.error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.full-page-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image covers the entire viewport */
+}
+
+.error-message {
+  background-color: #E22954;
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white; /* Adjust text color as needed for readability */
+  font-size: 30px; /* Adjust font size as needed */
+}
+
+.error-message a {
+  color: white;
+  text-decoration: underline;
+}
+
+    @media (max-width: 768px) {
+      .below-fold {
+        padding: 10px;
+        font-size: 24px;
+      }
+      .below-fold-detail {
+        font-size: 18px;
+      }
+      .hamburger-menu {
+        top: 10px;
+        margin-right: 20px;
+      }
+      .logo {
+        top: 10px;
+        margin-left: 20px;
+      }     
+      .menu-list li {
+        font-size: 14px;
+      }      
+      .section {
+        padding-bottom: 10px;
+      } 
+      #text-overlay {
+        font-size: 30px;
+        bottom: 80px;
+      }
+      .wrapper {
+        margin: 20px;
+      }
+      .menu {
+        top: 80px; /* Adjust top position for smaller screens */
+      } 
+      .footer-content {
+        flex-direction: column;
+        text-align: left;
+      }
+      .footer-nav {
+        margin-top: 10px;
+      }
+      .main-nav {
+        display: none;
+      }
+      .leaders {
+        flex-direction: column;
+        padding: 20px;
+      }
+      .leader p {
+        margin-top: 5px;
+      }    
+    } 
