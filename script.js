@@ -1,5 +1,5 @@
 const textElement = document.getElementById("text-overlay-change");
-const textList = ["Analytics", "Reporting", "Project Management", "Program Management"];
+const textList = ["Operational Due Diligence", "Metrics and Reporting", "Program Management", "Operational Transformation"];
 const colorList = ["43A047", "8963BA", "E22954", "E6CE60"]
 let timeoutId;
 
