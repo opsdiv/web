@@ -88,12 +88,15 @@ header {
     background: url('background.gif') center center no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    filter: brightness(0.8); /* Fade the background image */
+    filter: brightness(0.8);
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: flex-end; /* Align content to the bottom */
+    align-items: flex-start; /* Align content to the left */
+    padding: 0 2rem 2rem; /* Add horizontal and bottom padding */
+    box-sizing: border-box; /* Include padding in height calculation */
+    text-align: left; /* Align text within hero content to the left */
 }
 
 .hero-content {
@@ -101,20 +104,16 @@ header {
 }
 
 .hero h2 {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Smaller initial font size */
     margin-bottom: 1rem;
 }
 
-.button {
-    background-color: #0a47ff;
-    padding: 1rem 2rem;
-    margin-top: 4px;
-    border: none;
-    border-radius: 5px;
+.hero p {
+    font-size: 1rem;
+    margin-bottom: 0;
 }
 
-.button a {
-    color: #fff;
+.hero a{
     text-decoration: none;
 }
 
@@ -339,8 +338,19 @@ footer {
     }
 
     .hero {
-        height: auto;
-        padding: 2rem 0;
+        align-items: center; /* Center horizontally on smaller screens */
+        text-align: center;
+        padding: 0 1rem 2rem;
+    }
+    .hero-content {
+        max-width: 90%;
+        margin-bottom: 1rem;
+    }
+    .hero h2 {
+        font-size: 1.75rem;
+    }
+    .hero p {
+        font-size: 0.9rem;
     }
 
     .event-item {
