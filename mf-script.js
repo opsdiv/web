@@ -21,18 +21,3 @@ testimonialVideos.forEach(video => {
       video.play();
   });
 });
-
-// Function to change header opacity on scroll
-const handleScroll = () => {
-  const switchY = document.querySelector('.hero').offsetHeight;
-  const scrollPosition = window.scrollY;
-
-  if (scrollPosition > switchY) {
-      document.querySelector('header').style.backgroundColor = 'rgba(252, 243, 237, 1)'; 
-  } else {
-      document.querySelector('header').style.backgroundColor = 'rgba(252, 243, 237, 0.3)';
-  }
-};
-
-// Add event listener for scroll
-window.addEventListener('scroll', handleScroll);

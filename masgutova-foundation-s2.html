@@ -13,8 +13,9 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="mf-logo.png" alt="The logo of the Masgutova Foundation is a pink triangle with a heart in the middle. Three orbits of an atom sit behind the heart. One orbit is yellow, another is blue, and the third one is red."> 
+            <img src="masgutova-foundation-logo.png" alt="The logo of the Masgutova Foundation is a pink triangle with a heart in the middle. Three orbits of an atom sit behind the heart. One orbit is yellow, another is blue, and the third one is red."> 
         </div>
+        <button class="button">Lorem Ipsum Odor Amet</button>        
         <div class="menu-icon">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -31,10 +32,17 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div id="headline" class="hero-content">
+    <section class="hero-inline">
+        <div id="headline" class="hero-content-inline">
             <h2>Lorem Ipsum Odor Amet, Consectetuer Adipiscing Elit</h2>
-            <p>Sed ex orci dapibus tempus a ipsum tristique ac. Ut lobortis tempor senectus velit sit diam enim aptent. <a href="#">Learn More</a></p>
+            <p>Sed ex orci dapibus tempus a ipsum tristique ac. Ut lobortis tempor senectus velit sit diam enim aptent.</p> 
+            <p><a href="#" class="button">Learn More</a></p>
+        </div>
+        <div class="hero-image-inline">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="masgutova-foundation-background.webm" type="video/webm">
+                Your browser does not support the WebM video format.
+            </video>
         </div>
     </section>
 
@@ -81,11 +89,15 @@
             <img src="event-item.png" alt="Event Image" />
             <p>Bibendum posuere pellentesque quam non eu eleifend per turpis. Consectetur fermentum pulvinar sem; porttitor urna himenaeos. Nascetur lacinia feugiat ex, a quam neque.</p>
             <hr>
-            <div class="review-section">
-                <span class="star">★★★★★</span><br/>
-                "Consectetur fermentum pulvinar sem; porttitor urna himenaeos."
+            <div class="event-details">
+                <div class="labels">
+                    <span class="label">Lorem</span>
+                    <span class="label">Ipsum</span>
+                    <span class="label">Nascetur</span><br/>
+                </div>
+                <p>"Consectetur fermentum pulvinar sem; porttitor urna himenaeos."<p>
+                <button>Details</button>
             </div>
-            <button>Details</button>
         </div>
         <div class="event-item">
             <h3>Lorem Ipsum</h3>
@@ -96,13 +108,28 @@
             <img src="event-item.png" alt="Event Image">
             <p>Bibendum posuere pellentesque quam non eu eleifend per turpis. Consectetur fermentum pulvinar sem; porttitor urna himenaeos. Nascetur lacinia feugiat ex, a quam neque.</p>
             <hr>
-            <div class="review-section">
-                <span class="star">★★★★★</span><br/>
-                "Consectetur fermentum pulvinar sem; porttitor urna himenaeos."
+            <div class="event-details">
+                <div class="labels">
+                    <span class="label">Lorem</span>
+                    <span class="label">Ipsum</span>
+                    <span class="label">Nascetur</span><br/>
+                </div>
+                <p>"Consectetur fermentum pulvinar sem; porttitor urna himenaeos."<p>
+                <button>Details</button>
             </div>
-            <button>Details</button>
         </div>
+        <div class="event-view-more"><a href="#">View More</a></div>
     </section>
+    <div class="newsletter-signup">
+        <div class="newsletter">
+            <h3>Subscribe to our Newsletter</h3>
+            <form>
+                <input type="email" id="newsletter-email" name="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <hr/>
     <footer>
         <div class="footer-links">
             <a href="#">Consectetur</a>
@@ -111,7 +138,9 @@
             <a href="#">Porttitor</a>
             <a href="#">Himenaeos</a>
         </div>
-        <p class="footer-text">Bibendum posuere pellentesque quam non eu eleifend per turpis. Consectetur fermentum pulvinar sem; porttitor urna himenaeos. Nascetur lacinia feugiat ex, a quam neque.</p>
+        <div class="footer-text">
+            Bibendum posuere pellentesque quam non eu eleifend per turpis. Consectetur fermentum pulvinar sem; porttitor urna himenaeos. Nascetur lacinia feugiat ex, a quam neque.
+        </div>
     </footer>
 
     <script src="mf-script.js"></script>

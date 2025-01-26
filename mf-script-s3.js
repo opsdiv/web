@@ -30,7 +30,7 @@ const handleScroll = () => {
   if (scrollPosition > switchY) {
       document.querySelector('header').style.backgroundColor = 'rgba(239, 239, 239, 1)'; 
   } else {
-      document.querySelector('header').style.backgroundColor = 'rgba(239, 239, 239, 0.3)';
+      document.querySelector('header').style.backgroundColor = 'rgba(239, 239, 239, 1)';
   }
 };
 
