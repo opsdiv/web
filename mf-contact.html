@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masgutova Foundation - Contact Us</title>
+    <link rel="stylesheet" href="mf-style-s2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background-color: #0000b8;
+            color: white;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info-item h4 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-item p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .contact-form-container {
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form-container h2 {
+            margin-bottom: 2rem;
+            color: #0000b8;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group select {
+            background-color: white;
+        }
+
+        .submit-button {
+            background-color: #0A47FF;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: #000096;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 1rem;
+            }
+
+            .contact-info,
+            .contact-form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="masgutova-foundation-logo.png" alt="The logo of the Masgutova Foundation is a pink triangle with a heart in the middle. Three orbits of an atom sit behind the heart. One orbit is yellow, another is blue, and the third one is red."> 
+        </div>
+        <button class="button">Lorem Ipsum Odor Amet</button>        
+        <div class="menu-icon">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">For Practitioners</a></li>
+                <li><a href="#">For Caregivers</a></li>
+                <li><a href="#">Our Courses</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+            <span class="close">Close</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="contact-container">
+            <div class="contact-form-container">
+                <h2>Get in Touch</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Please select...</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="courses">Course Information</option>
+                            <option value="certification">Certification Programs</option>
+                            <option value="support">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <div class="contact-info-item">
+                    <h4>Address</h4>
+                    <p>123 Neurodevelopment Way<br>
+                    Suite 200<br>
+                    Orlando, FL 32801</p>
+                </div>
+
+                <div class="contact-info-item">
+                    <h4>Phone</h4>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+
+                <div class="contact-info-item">
+                    <h4>Email</h4>
+                    <p>info@masgutovafoundation.org</p>
+                </div>
+
+                <div class="contact-info-item">
+                    <h4>Office Hours</h4>
+                    <p>Monday - Friday: 9:00 AM - 5:00 PM EST<br>
+                    Saturday - Sunday: Closed</p>
+                </div>
+
+                <div class="contact-info-item">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="newsletter-signup">
+        <div class="newsletter">
+            <h3>Subscribe to our Newsletter</h3>
+            <form>
+                <input type="email" id="newsletter-email" name="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <hr/>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Consectetur</a>
+            <a href="#">Fermentum</a>
+            <a href="#">Pulvinar</a>
+            <a href="#">Porttitor</a>
+            <a href="#">Himenaeos</a>
+        </div>
+        <div class="footer-text">
+            Bibendum posuere pellentesque quam non eu eleifend per turpis. Consectetur fermentum pulvinar sem; porttitor urna himenaeos. Nascetur lacinia feugiat ex, a quam neque.
+        </div>
+    </footer>
+
+    <script src="mf-script.js"></script>
+</body>
+</html>

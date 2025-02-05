@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events - Masgutova Foundation</title>
+    <link rel="stylesheet" href="mf-style-s2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+
+         .calendar-hero {
+            position: relative;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .calendar-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .calendar-hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0, 0, 184, .97), rgba(0, 0, 184, 1));
+            color: white;
+        }
+
+        .calendar-hero-content h1{
+            margin-bottom: .5rem;
+            padding-top: 3.5rem;
+        }
+
+        .event-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: center;
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-date {
+            text-align: left;
+            font-size: x-large;
+            font-weight: 800;
+            display: block;
+        }
+
+        .event-date .timestamp{
+            margin-bottom: 1rem;
+        }
+        .event-date .day-counter {
+            color: #e44e80;
+            font-weight: bold;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .event-content h3 {
+            margin: 0 0 0.5rem 0;
+        }
+
+        .event-content .labels {
+            margin-bottom: 0.5rem;
+        }
+
+        .details-button {
+            background: #0000b8;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 24px;
+        }
+        .event-item button {
+            font-size: 24px;
+        }
+        @media (max-width: 768px) {
+            .event-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="masgutova-foundation-logo.png" alt="The logo of the Masgutova Foundation is a pink triangle with a heart in the middle. Three orbits of an atom sit behind the heart. One orbit is yellow, another is blue, and the third one is red."> 
+        </div>
+        <button class="button">Lorem Ipsum Odor Amet</button>        
+        <div class="menu-icon">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">For Practitioners</a></li>
+                <li><a href="#">For Caregivers</a></li>
+                <li><a href="#">Our Courses</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+            <span class="close">Close</span>
+        </div>
+    </header>
+
+    <section class="event-list event-list-header">
+        <div class="calendar-hero">
+            <img src="mf-tri-background-wide-5.jpeg" alt="Therapeutic session in progress">
+            <div class="calendar-hero-content">
+                <h1>Upcoming Events</h1>
+            </div>
+        </div>
+
+        
+        <div class="event-item">
+            <div class="event-date">
+                <div class="timestamp">Feb 15<br/>
+                4:00pm EST<br/>
+                </div>
+                <div><button class="details-button">Details</button></div>
+            </div>
+            
+            <div class="event-content">
+                <img src="event-item-cropped.png" />
+                <h3>Lorem Ipsum Bibendum Posuere Pellentesque</h3>
+                <p>
+                    Bibendum posuere pellentesque quam non eu eleifend per turpis. Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.
+                </p>
+                <div class="labels">
+                    <span class="label">Lorem</span>
+                    <span class="label">Ipsum</span>
+                </div>
+            </div>
+        </div>
+        <div class="event-item">
+            <div class="event-date">
+                <div class="timestamp">Feb 18<br/>
+                4:00pm EST<br/>
+                </div>
+                <div><button class="details-button">Details</button></div>
+            </div>
+            
+            <div class="event-content">
+                <img src="event-item-cropped.png" />
+                <h3>Lorem Ipsum Bibendum Posuere Pellentesque</h3>
+                <p>
+                    Bibendum posuere pellentesque quam non eu eleifend per turpis. Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.
+                </p>
+                <div class="labels">
+                    <span class="label">Lorem</span>
+                    <span class="label">Ipsum</span>
+                </div>
+            </div>
+        </div>
+        <div class="event-item">
+            <div class="event-date">
+                <div class="timestamp">Feb 25<br/>
+                4:00pm EST<br/>
+                </div>
+                <div><button class="details-button">Details</button></div>
+            </div>
+            
+            <div class="event-content">
+                <img src="event-item-cropped.png" />
+                <h3>Lorem Ipsum Bibendum Posuere Pellentesque</h3>
+                <p>
+                    Bibendum posuere pellentesque quam non eu eleifend per turpis. Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.
+                </p>
+                <div class="labels">
+                    <span class="label">Lorem</span>
+                    <span class="label">Ipsum</span>
+                </div>
+            </div>
+        </div>
+        <div class="event-item">
+            <div class="event-date">
+                <div class="timestamp">Mar 1<br/>
+                4:00pm EST<br/>
+                </div>
+                <div><button class="details-button">Details</button></div>
+            </div>
+            
+            <div class="event-content">
+                <img src="event-item-cropped.png" />
+                <h3>Lorem Ipsum Bibendum Posuere Pellentesque</h3>
+                <p>
+                    Bibendum posuere pellentesque quam non eu eleifend per turpis. Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.
+                </p>
+                <div class="labels">
+                    <span class="label">Lorem</span>
+                    <span class="label">Ipsum</span>
+                </div>
+            </div>
+        </div>
+        <div class="event-item">
+            <div class="event-date">
+                <div class="timestamp">Mar 10<br/>
+                4:00pm EST<br/>
+                </div>
+                <div><button class="details-button">Details</button></div>
+            </div>
+            
+            <div class="event-content">
+                <img src="event-item-cropped.png" />
+                <h3>Lorem Ipsum Bibendum Posuere Pellentesque</h3>
+                <p>
+                    Bibendum posuere pellentesque quam non eu eleifend per turpis. Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.
+                </p>
+                <div class="labels">
+                    <span class="label">Lorem</span>
+                    <span class="label">Ipsum</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="newsletter-signup">
+        <div class="newsletter">
+            <h3>Subscribe to our Newsletter</h3>
+            <form>
+                <input type="email" id="newsletter-email" name="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <hr/>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Consectetur</a>
+            <a href="#">Fermentum</a>
+            <a href="#">Pulvinar</a>
+            <a href="#">Porttitor</a>
+            <a href="#">Himenaeos</a>
+        </div>
+        <div class="footer-text">
+            Bibendum posuere pellentesque quam non eu eleifend per turpis. Consectetur fermentum pulvinar sem; porttitor urna himenaeos. Nascetur lacinia feugiat ex, a quam neque.
+        </div>
+    </footer>
+
+    <script src="mf-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masgutova Foundation - On Demand Events</title>
+    <link rel="stylesheet" href="mf-style-s2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+
+        .catalog-hero {
+            position: relative;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .catalog-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .catalog-hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0, 0, 184, .97), rgba(0, 0, 184, 1));
+            color: white;
+        }
+
+        .catalog-hero-content h1{
+            color: white;
+            margin-bottom: .5rem;
+            padding-top: 3.5rem;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .catalog-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .catalog-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .catalog-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .catalog-content {
+            padding: 1.5rem;
+        }
+
+        .catalog-content h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+            color: #0000b8;
+        }
+
+        .catalog-content p {
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .catalog-price {
+            font-weight: bold;
+            color: #e44e80;
+            margin-bottom: 1rem;
+        }
+
+        .catalog-labels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .catalog-button {
+            width: 100%;
+            padding: 0.8rem;
+            background: #0000b8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .catalog-button:hover {
+            background: #000096;
+        }
+
+        .catalog-filters {
+            padding: 1rem 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .filter-button {
+            padding: 0.5rem 1rem;
+            border: 2px solid #0000b8;
+            border-radius: 20px;
+            background: white;
+            color: #0000b8;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-button:hover,
+        .filter-button.active {
+            background: #0000b8;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .catalog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                padding: 1rem;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="masgutova-foundation-logo.png" alt="The logo of the Masgutova Foundation is a pink triangle with a heart in the middle. Three orbits of an atom sit behind the heart. One orbit is yellow, another is blue, and the third one is red."> 
+        </div>
+        <button class="button">Lorem Ipsum Odor Amet</button>        
+        <div class="menu-icon">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">For Practitioners</a></li>
+                <li><a href="#">For Caregivers</a></li>
+                <li><a href="#">Our Courses</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+            <span class="close">Close</span>
+        </div>
+    </header>
+
+    <section class="event-list-header">
+        <div class="catalog-hero">
+            <img src="mf-tri-background-wide-4.jpeg" alt="">
+            <div class="catalog-hero-content">
+                <h1>On Demand Learning</h1>
+                <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Eu tortor vitae urna non faucibus; leo platea efficitur. Rutrum inceptos odio lobortis pulvinar pulvinar.</p>
+            </div>
+        </div>
+        <div class="catalog-filters">
+            <button class="filter-button active">All</button>
+            <button class="filter-button">Beginner</button>
+            <button class="filter-button">Advanced</button>
+            <button class="filter-button">Professional</button>
+            <button class="filter-button">Certification</button>
+        </div>
+    </section>
+
+    <div class="catalog-grid">
+        <div class="catalog-item">
+            <img src="event-item.png" alt="Introduction to Neuroreflex Integration">
+            <div class="catalog-content">
+                <div class="catalog-labels">
+                    <span class="label">Beginner</span>
+                    <span class="label">Self-Paced</span>
+                </div>
+                <h3>Introduction to Neuroreflex Integration</h3>
+                <p>Learn the fundamentals of neuroreflex integration at your own pace.</p>
+                <div class="catalog-price">$49</div>
+                <button class="catalog-button">Start Learning</button>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <img src="event-item.png" alt="Hand/Arm Reflex Patterns">
+            <div class="catalog-content">
+                <div class="catalog-labels">
+                    <span class="label">Advanced</span>
+                    <span class="label">Certificate</span>
+                </div>
+                <h3>Hand/Arm Reflex Patterns</h3>
+                <p>Comprehensive training on hand and arm reflex patterns and their integration.</p>
+                <div class="catalog-price">$75</div>
+                <button class="catalog-button">Start Learning</button>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <img src="event-item.png" alt="Emotional Stability Workshop">
+            <div class="catalog-content">
+                <div class="catalog-labels">
+                    <span class="label">Professional</span>
+                    <span class="label">CEU</span>
+                </div>
+                <h3>Emotional Stability Workshop</h3>
+                <p>Advanced techniques for emotional regulation and stability.</p>
+                <div class="catalog-price">$95</div>
+                <button class="catalog-button">Start Learning</button>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <img src="event-item.png" alt="Practitioner Certification">
+            <div class="catalog-content">
+                <div class="catalog-labels">
+                    <span class="label">Certification</span>
+                    <span class="label">Professional</span>
+                </div>
+                <h3>Practitioner Certification Course</h3>
+                <p>Complete certification program for healthcare professionals.</p>
+                <div class="catalog-price">$499</div>
+                <button class="catalog-button">Start Learning</button>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <img src="event-item.png" alt="Core Motor Coordination">
+            <div class="catalog-content">
+                <div class="catalog-labels">
+                    <span class="label">Advanced</span>
+                    <span class="label">Specialized</span>
+                </div>
+                <h3>Core Motor Coordination</h3>
+                <p>Advanced study of core motor coordination and development.</p>
+                <div class="catalog-price">$85</div>
+                <button class="catalog-button">Start Learning</button>
+            </div>
+        </div>
+
+        <div class="catalog-item">
+            <img src="event-item.png" alt="Visual-Auditory Integration">
+            <div class="catalog-content">
+                <div class="catalog-labels">
+                    <span class="label">Advanced</span>
+                    <span class="label">Specialized</span>
+                </div>
+                <h3>Visual-Auditory Integration</h3>
+                <p>Comprehensive course on visual and auditory integration techniques.</p>
+                <div class="catalog-price">$85</div>
+                <button class="catalog-button">Start Learning</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="newsletter-signup">
+        <div class="newsletter">
+            <h3>Subscribe to our Newsletter</h3>
+            <form>
+                <input type="email" id="newsletter-email" name="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <hr/>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Consectetur</a>
+            <a href="#">Fermentum</a>
+            <a href="#">Pulvinar</a>
+            <a href="#">Porttitor</a>
+            <a href="#">Himenaeos</a>
+        </div>
+        <div class="footer-text">
+            Bibendum posuere pellentesque quam non eu eleifend per turpis. Consectetur fermentum pulvinar sem; porttitor urna himenaeos. Nascetur lacinia feugiat ex, a quam neque.
+        </div>
+    </footer>
+
+    <script src="mf-script.js"></script>
+</body>
+</html>
