@@ -337,7 +337,12 @@ header {
     color: #0a47ff;
     margin: auto;
 }
-
+/* Main */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
 /* Footer */
 footer {
     background-color: #0000b8;
@@ -555,7 +560,7 @@ h1 {
     grid-gap: 2rem;
 }
 
-.event-list-header{
+.page-header{
     padding-top: 2rem;
 }
 
