@@ -14,9 +14,8 @@
          .calendar-hero {
             position: relative;
             height: 400px;
-            border-radius: 8px;
             overflow: hidden;
-            margin-bottom: 4rem;
+            margin-bottom: .2rem;
         }
 
         .calendar-hero img {
@@ -40,63 +39,211 @@
             padding-top: 3.5rem;
         }
 
-        .event-item {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2rem;
+
+        .calendar-container {
+            max-width: 1200px;
+            margin: .2rem auto;
+            padding: 0 2rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: center;
             align-items: center;
+            margin-bottom: .2rem;
+        }
+
+        .calendar-header h1 {
+            color: #0000b8;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .month-navigation {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .month-navigation button {
+            background: none;
+            border: none;
+            color: #0000b8;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+        }
+
+        .current-month {
+            font-size: 1.2rem;
+            font-weight: 600;
+            min-width: 200px;
+            text-align: center;
+            color: #00008b;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #ddd;
+            border: 1px solid #ddd;
+        }
+
+        .calendar-header-cell {
+            background: #0000b8;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .calendar-cell {
             background: white;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            min-height: 120px;
+            padding: 0.5rem;
+            position: relative;
         }
 
-        .event-date {
-            text-align: left;
-            font-size: x-large;
-            font-weight: 800;
-            display: block;
+        .date-number {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-weight: 600;
         }
 
-        .event-date .timestamp{
-            margin-bottom: 1rem;
+        .calendar-cell.past-date {
+            background: #f5f5f5;
+            color: #999;
         }
-        .event-date .day-counter {
+
+        .calendar-cell.current-date {
+            background: #e6f3ff;
+            border: 2px solid #0000b8;
+        }
+
+        .calendar-cell.has-event {
+            cursor: pointer;
+        }
+
+        .event-indicator {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .event-time {
             color: #e44e80;
-            font-weight: bold;
-            display: block;
-            margin-top: 0.5rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
         }
 
-        .event-content h3 {
-            margin: 0 0 0.5rem 0;
-        }
-
-        .event-content .labels {
+        .event-title {
+            color: #0000b8;
             margin-bottom: 0.5rem;
         }
 
-        .details-button {
-            background: #0000b8;
+        .calendar-page-layout {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2rem;
+        }
+
+        .event-details-panel {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .event-details-header {
+            margin-bottom: 2rem;
+        }
+
+        .event-details-header h2 {
+            color: #0000b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-details-date {
+            color: #e44e80;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .event-details-time {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-details-description {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .event-details-price {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .event-details-cta {
+            background: #0A47FF;
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 1rem;
             border: none;
             border-radius: 4px;
+            width: 100%;
             cursor: pointer;
-            white-space: nowrap;
-            font-size: 24px;
+            font-weight: 600;
         }
-        .event-item button {
-            font-size: 24px;
+
+        .calendar-cell.selected {
+            border: 2px solid #e44e80;
         }
-        @media (max-width: 768px) {
-            .event-item {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+
+        .no-event-message {
+            color: #666;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .calendar-page-layout {
+                grid-template-columns: 1fr 300px;
             }
         }
 
+        @media (max-width: 768px) {
+            .calendar-page-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-container {
+                padding: 0;
+            }
+
+            .event-details-panel {
+                position: static;
+                margin-top: 2rem;
+            }
+
+            .calendar-container {
+                padding: 0 1rem;
+            }
+
+            .calendar-cell {
+                min-height: 100px;
+            }
+
+            .event-indicator {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -121,116 +268,292 @@
         </div>
     </header>
 
-    <section class="event-list event-list-header">
+    <section class="page-header">
         <div class="calendar-hero">
-            <img src="mf-tri-background-wide-5.jpeg" alt="Therapeutic session in progress">
+            <img src="mf-tri-background-wide-8.jpeg" alt="Therapeutic session in progress">
             <div class="calendar-hero-content">
-                <h1>Upcoming Events</h1>
-            </div>
-        </div>
-
-        
-        <div class="event-item">
-            <div class="event-date">
-                <div class="timestamp">Feb 15<br/>
-                4:00pm EST<br/>
-                </div>
-                <div><button class="details-button">Details</button></div>
-            </div>
-            
-            <div class="event-content">
-                <img src="event-item-cropped.png" />
-                <h3>Lorem Ipsum Bibendum Posuere Pellentesque</h3>
-                <p>
-                    Bibendum posuere pellentesque quam non eu eleifend per turpis. Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.
-                </p>
-                <div class="labels">
-                    <span class="label">Lorem</span>
-                    <span class="label">Ipsum</span>
-                </div>
-            </div>
-        </div>
-        <div class="event-item">
-            <div class="event-date">
-                <div class="timestamp">Feb 18<br/>
-                4:00pm EST<br/>
-                </div>
-                <div><button class="details-button">Details</button></div>
-            </div>
-            
-            <div class="event-content">
-                <img src="event-item-cropped.png" />
-                <h3>Lorem Ipsum Bibendum Posuere Pellentesque</h3>
-                <p>
-                    Bibendum posuere pellentesque quam non eu eleifend per turpis. Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.
-                </p>
-                <div class="labels">
-                    <span class="label">Lorem</span>
-                    <span class="label">Ipsum</span>
-                </div>
-            </div>
-        </div>
-        <div class="event-item">
-            <div class="event-date">
-                <div class="timestamp">Feb 25<br/>
-                4:00pm EST<br/>
-                </div>
-                <div><button class="details-button">Details</button></div>
-            </div>
-            
-            <div class="event-content">
-                <img src="event-item-cropped.png" />
-                <h3>Lorem Ipsum Bibendum Posuere Pellentesque</h3>
-                <p>
-                    Bibendum posuere pellentesque quam non eu eleifend per turpis. Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.
-                </p>
-                <div class="labels">
-                    <span class="label">Lorem</span>
-                    <span class="label">Ipsum</span>
-                </div>
-            </div>
-        </div>
-        <div class="event-item">
-            <div class="event-date">
-                <div class="timestamp">Mar 1<br/>
-                4:00pm EST<br/>
-                </div>
-                <div><button class="details-button">Details</button></div>
-            </div>
-            
-            <div class="event-content">
-                <img src="event-item-cropped.png" />
-                <h3>Lorem Ipsum Bibendum Posuere Pellentesque</h3>
-                <p>
-                    Bibendum posuere pellentesque quam non eu eleifend per turpis. Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.
-                </p>
-                <div class="labels">
-                    <span class="label">Lorem</span>
-                    <span class="label">Ipsum</span>
-                </div>
-            </div>
-        </div>
-        <div class="event-item">
-            <div class="event-date">
-                <div class="timestamp">Mar 10<br/>
-                4:00pm EST<br/>
-                </div>
-                <div><button class="details-button">Details</button></div>
-            </div>
-            
-            <div class="event-content">
-                <img src="event-item-cropped.png" />
-                <h3>Lorem Ipsum Bibendum Posuere Pellentesque</h3>
-                <p>
-                    Bibendum posuere pellentesque quam non eu eleifend per turpis. Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.Bibendum posuere pellentesque quam non eu eleifend per turpis.
-                </p>
-                <div class="labels">
-                    <span class="label">Lorem</span>
-                    <span class="label">Ipsum</span>
-                </div>
+                <h1>Calendar of Events</h1>
             </div>
         </div>
     </section>
+
+    <main class="calendar-page-layout">
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <div class="month-navigation">
+                    <button id="prevMonth">&lt;</button>
+                    <div class="current-month" id="currentMonth"></div>
+                    <button id="nextMonth">&gt;</button>
+                </div>
+            </div>
+
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Calendar will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="event-details-panel" id="eventDetails">
+            <!-- Event details will be populated by JavaScript -->
+        </div>
+    </main>
+
+    <script>
+        const events = [
+            {
+                id: 1,
+                date: '2025-02-12',
+                start_time: '6:00 PM',
+                end_time: '8:00 PM',
+                tz: 'EST',
+                title: 'Lorem Ipsum Session',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                price: '$25',
+                location: 'Online',
+                duration: '2 hours'
+            },
+            {
+                id: 2,
+                date: '2025-02-15',
+                start_time: '2:00 PM',
+                end_time: '5:00 PM',
+                tz: 'EST',
+                title: 'Dolor Sit Workshop',
+                description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                price: '$75',
+                location: 'Virtual Classroom',
+                duration: '3 hours'
+            }
+        ];
+
+        class Calendar {
+            constructor() {
+                this.today = new Date();
+                this.currentDate = new Date();
+                this.currentMonth = this.currentDate.getMonth();
+                this.currentYear = this.currentDate.getFullYear();
+                
+                this.daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                this.monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                
+                this.setupCalendar();
+                this.setupNavigation();
+                this.selectedEventId = null;
+                this.setupEventHandling();
+                
+                // Show next upcoming event by default
+                this.showNextUpcomingEvent();
+
+            }
+
+            setupNavigation() {
+                document.getElementById('prevMonth').addEventListener('click', () => {
+                    this.currentMonth--;
+                    if (this.currentMonth < 0) {
+                        this.currentMonth = 11;
+                        this.currentYear--;
+                    }
+                    this.renderCalendar();
+                });
+
+                document.getElementById('nextMonth').addEventListener('click', () => {
+                    this.currentMonth++;
+                    if (this.currentMonth > 11) {
+                        this.currentMonth = 0;
+                        this.currentYear++;
+                    }
+                    this.renderCalendar();
+                });
+            }
+
+            setupCalendar() {
+                const grid = document.getElementById('calendarGrid');
+                
+                // Add day headers
+                this.daysOfWeek.forEach(day => {
+                    const headerCell = document.createElement('div');
+                    headerCell.className = 'calendar-header-cell';
+                    headerCell.textContent = day.slice(0, 3);
+                    grid.appendChild(headerCell);
+                });
+
+                this.renderCalendar();
+            }
+
+            getEventsForDate(date) {
+                return events.filter(event => event.date === date);
+            }
+
+            formatDateString(date) {
+                return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+            }
+
+            showNextUpcomingEvent() {
+                const today = new Date();
+                const upcomingEvent = events.find(event => {
+                    const eventDate = new Date(event.date);
+                    return eventDate >= today;
+                });
+
+                if (upcomingEvent) {
+                    this.selectedEventId = upcomingEvent.id;
+                    this.showEventDetails(upcomingEvent);
+                }
+            }
+
+            setupEventHandling() {
+                document.getElementById('calendarGrid').addEventListener('click', (e) => {
+                    const cell = e.target.closest('.calendar-cell');
+                    if (!cell || !cell.classList.contains('has-event')) return;
+
+                    const dateNumber = cell.querySelector('.date-number').textContent;
+                    const eventDate = new Date(this.currentYear, this.currentMonth, dateNumber);
+                    const dateString = this.formatDateString(eventDate);
+                    
+                    const dateEvents = this.getEventsForDate(dateString);
+                    if (dateEvents.length > 0) {
+                        this.selectedEventId = dateEvents[0].id;
+                        this.showEventDetails(dateEvents[0]);
+                        this.updateSelectedCell(cell);
+                    }
+                });
+            }
+
+            updateSelectedCell(selectedCell) {
+                // Remove previous selection
+                const cells = document.querySelectorAll('.calendar-cell');
+                cells.forEach(cell => cell.classList.remove('selected'));
+                
+                // Add selection to clicked cell
+                selectedCell.classList.add('selected');
+            }
+
+            showEventDetails(event) {
+                const detailsPanel = document.getElementById('eventDetails');
+                if (!event) {
+                    detailsPanel.innerHTML = `
+                        <div class="no-event-message">
+                            <p>No event selected</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                detailsPanel.innerHTML = `
+                    <div class="event-details-header">
+                        <h2>${event.title}</h2>
+                        <div class="event-details-date">
+                            ${new Date(event.date).toLocaleDateString('en-US', {
+                                weekday: 'long',
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            })}
+                        </div>
+                        <div class="event-details-time">
+                            ${event.start_time} - ${event.start_time} ${event.tz} <br/>(${event.duration})
+                        </div>
+                    </div>
+                    
+                    <div class="event-details-description">
+                        ${event.description}
+                    </div>
+                    
+                    <div class="event-details-info">
+                        <div class="event-details-location">
+                            Location: ${event.location}
+                        </div>
+                        <div class="event-details-price">
+                            Price: ${event.price}
+                        </div>
+                    </div>
+
+                    <button class="event-details-cta">
+                        REGISTER
+                    </button>
+                `;
+            }            
+
+            renderCalendar() {
+                const grid = document.getElementById('calendarGrid');
+                const monthDisplay = document.getElementById('currentMonth');
+                
+                // Clear existing calendar cells (except headers)
+                while (grid.children.length > 7) {
+                    grid.removeChild(grid.lastChild);
+                }
+
+                // Update month display
+                monthDisplay.textContent = `${this.monthNames[this.currentMonth]} ${this.currentYear}`;
+
+                // Get first day of month and total days
+                const firstDay = new Date(this.currentYear, this.currentMonth, 1);
+                const lastDay = new Date(this.currentYear, this.currentMonth + 1, 0);
+                const totalDays = lastDay.getDate();
+                const startingDay = firstDay.getDay();
+
+                // Create calendar cells
+                for (let i = 0; i < 42; i++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'calendar-cell';
+
+                    const dayNumber = i - startingDay + 1;
+                    const currentDate = new Date(this.currentYear, this.currentMonth, dayNumber);
+                    
+                    if (i >= startingDay && i < startingDay + totalDays) {
+                        const dateString = this.formatDateString(currentDate);
+                        const dateEvents = this.getEventsForDate(dateString);
+
+                        cell.innerHTML = `
+                            <div class="date-number">${dayNumber}</div>
+                            ${dateEvents.map(event => `
+                                <div class="event-indicator">
+                                    <div class="event-time">${event.start_time} ${event.tz}</div>
+                                    <div class="event-title">${event.title}</div>
+                                </div>
+                            `).join('')}
+                        `;
+
+                        // Add appropriate classes
+                        if (currentDate < this.today) {
+                            cell.classList.add('past-date');
+                        }
+                        if (dateEvents.length > 0) {
+                            cell.classList.add('has-event');
+                        }
+                        if (currentDate.toDateString() === this.today.toDateString()) {
+                            cell.classList.add('current-date');
+                        }
+                    }
+
+                    grid.appendChild(cell);
+                }
+
+                if (this.selectedEventId) {
+                    const selectedEvent = events.find(e => e.id === this.selectedEventId);
+                    if (selectedEvent) {
+                        const cells = document.querySelectorAll('.calendar-cell');
+                        cells.forEach(cell => {
+                            const dateNumber = cell.querySelector('.date-number')?.textContent;
+                            if (dateNumber) {
+                                const cellDate = new Date(this.currentYear, this.currentMonth, dateNumber);
+                                const eventDate = new Date(selectedEvent.date);
+                                if (cellDate.toDateString() === eventDate.toDateString()) {
+                                    cell.classList.add('selected');
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        }                
+
+
+
+        // Initialize calendar when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new Calendar();
+        });
+    </script>
 
     <div class="newsletter-signup">
         <div class="newsletter">
