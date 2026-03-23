@@ -91,18 +91,46 @@ sections.forEach(s => sectionObserver.observe(s));
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 
+// ── Contact form — Formspree submission ──────────────────────
+// Steps to activate:
+// 1. Sign up at https://formspree.io (free)
+// 2. Create a form pointed at hello@opsdiv.com
+// 3. Replace YOUR_FORMSPREE_ID below with your form's ID (e.g. "xpzgkqla")
+const FORMSPREE_ID = 'mnjgkzjg';
+
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    // Simulate submission (replace with Formspree or Netlify Forms endpoint)
+
     const btn = contactForm.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    setTimeout(() => {
-      contactForm.style.display = 'none';
-      formSuccess.classList.add('visible');
-    }, 900);
+    const data = new FormData(contactForm);
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        contactForm.style.display = 'none';
+        formSuccess.classList.add('visible');
+      } else {
+        const json = await res.json();
+        const msg = json.errors?.map(e => e.message).join(', ') || 'Something went wrong. Please email hello@opsdiv.com directly.';
+        alert(msg);
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    } catch (err) {
+      alert('Unable to send. Please email hello@opsdiv.com directly.');
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
   });
 }
 
