@@ -2,15 +2,15 @@
    OPSDIV — main.js
    ============================================================ */
 
-// ── NAV scroll behavior ──────────────────────────────────────
+// ── NAV scroll behavior (IntersectionObserver, no scroll event) ──
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 40) {
-    nav.style.background = 'rgba(11,15,26,0.96)';
-  } else {
-    nav.style.background = 'rgba(11,15,26,0.82)';
-  }
-});
+const navSentinel = document.getElementById('nav-sentinel');
+
+if (navSentinel) {
+  new IntersectionObserver(([entry]) => {
+    nav.classList.toggle('scrolled', !entry.isIntersecting);
+  }).observe(navSentinel);
+}
 
 // ── Hamburger / mobile menu ──────────────────────────────────
 const hamburger = document.getElementById('hamburger');
@@ -20,14 +20,22 @@ let menuOpen = false;
 hamburger.addEventListener('click', () => {
   menuOpen = !menuOpen;
   mobileMenu.classList.toggle('open', menuOpen);
+  hamburger.setAttribute('aria-expanded', String(menuOpen));
+
   // Animate hamburger to X
   const spans = hamburger.querySelectorAll('span');
   if (menuOpen) {
     spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
     spans[1].style.opacity = '0';
     spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    // Move focus into menu after transition starts
+    setTimeout(() => {
+      const firstLink = mobileMenu.querySelector('.mobile-link');
+      if (firstLink) firstLink.focus();
+    }, 50);
   } else {
     spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    hamburger.focus();
   }
 });
 
@@ -36,6 +44,7 @@ document.querySelectorAll('.mobile-link').forEach(link => {
   link.addEventListener('click', () => {
     menuOpen = false;
     mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
     const spans = hamburger.querySelectorAll('span');
     spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
   });
@@ -51,7 +60,6 @@ revealElements.forEach(el => el.classList.add('reveal'));
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Stagger children in grids
       entry.target.classList.add('visible');
     }
   });
@@ -90,24 +98,45 @@ sections.forEach(s => sectionObserver.observe(s));
 // ── Contact form ─────────────────────────────────────────────
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
+const formError   = document.getElementById('formError');
 
-// ── Contact form — Formspree submission ──────────────────────
-// Steps to activate:
-// 1. Sign up at https://formspree.io (free)
-// 2. Create a form pointed at hello@opsdiv.com
-// 3. Replace YOUR_FORMSPREE_ID below with your form's ID (e.g. "xpzgkqla")
 const FORMSPREE_ID = 'mnjgkzjg';
+
+function showFormError(msg) {
+  if (formError) {
+    formError.textContent = msg;
+  }
+}
+
+function clearFormError() {
+  if (formError) {
+    formError.textContent = '';
+  }
+}
 
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    clearFormError();
 
     const btn = contactForm.querySelector('button[type="submit"]');
     const originalText = btn.textContent;
+    const data = new FormData(contactForm);
+
+    // Client-side validation before network call
+    const nameVal = (data.get('name') || '').toString().trim();
+    const emailVal = (data.get('email') || '').toString().trim();
+    if (!nameVal) {
+      showFormError('Please enter your name.');
+      return;
+    }
+    if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+      showFormError('Please enter a valid email address.');
+      return;
+    }
+
     btn.textContent = 'Sending...';
     btn.disabled = true;
-
-    const data = new FormData(contactForm);
 
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
@@ -122,22 +151,24 @@ if (contactForm) {
       } else {
         const json = await res.json();
         const msg = json.errors?.map(e => e.message).join(', ') || 'Something went wrong. Please email hello@opsdiv.com directly.';
-        alert(msg);
+        showFormError(msg);
         btn.textContent = originalText;
         btn.disabled = false;
       }
     } catch (err) {
-      alert('Unable to send. Please email hello@opsdiv.com directly.');
+      showFormError('Unable to send. Please email hello@opsdiv.com directly.');
       btn.textContent = originalText;
       btn.disabled = false;
     }
   });
 }
 
-// ── Cursor accent dot (optional ambient effect) ──────────────
+// ── Cursor accent dot ─────────────────────────────────────────
 const cursorDot = document.createElement('div');
 cursorDot.style.cssText = `
   position: fixed;
+  left: 0;
+  top: 0;
   width: 6px;
   height: 6px;
   background: var(--amber, #e8a020);
@@ -145,20 +176,31 @@ cursorDot.style.cssText = `
   pointer-events: none;
   z-index: 9999;
   opacity: 0;
-  transition: opacity 0.3s;
-  transform: translate(-50%, -50%);
+  transition: opacity 0.3s, transform 0.15s;
 `;
 document.body.appendChild(cursorDot);
 
 let cursorVisible = false;
+let cursorX = 0, cursorY = 0, rafPending = false, cursorScale = 1;
+
 document.addEventListener('mousemove', (e) => {
-  cursorDot.style.left = e.clientX + 'px';
-  cursorDot.style.top = e.clientY + 'px';
+  cursorX = e.clientX;
+  cursorY = e.clientY;
+
   if (!cursorVisible) {
     cursorDot.style.opacity = '0.6';
     cursorVisible = true;
   }
+
+  if (!rafPending) {
+    rafPending = true;
+    requestAnimationFrame(() => {
+      cursorDot.style.transform = `translate(${cursorX - 3}px, ${cursorY - 3}px) scale(${cursorScale})`;
+      rafPending = false;
+    });
+  }
 });
+
 document.addEventListener('mouseleave', () => {
   cursorDot.style.opacity = '0';
   cursorVisible = false;
@@ -167,11 +209,13 @@ document.addEventListener('mouseleave', () => {
 // Enlarge on interactive elements
 document.querySelectorAll('a, button, input, select, textarea').forEach(el => {
   el.addEventListener('mouseenter', () => {
-    cursorDot.style.transform = 'translate(-50%, -50%) scale(3)';
+    cursorScale = 3;
     cursorDot.style.opacity = '0.3';
+    cursorDot.style.transform = `translate(${cursorX - 3}px, ${cursorY - 3}px) scale(3)`;
   });
   el.addEventListener('mouseleave', () => {
-    cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+    cursorScale = 1;
     cursorDot.style.opacity = '0.6';
+    cursorDot.style.transform = `translate(${cursorX - 3}px, ${cursorY - 3}px) scale(1)`;
   });
 });
